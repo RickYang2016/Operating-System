@@ -5,4 +5,4 @@
 
             ./a.out input_file_name output_file_name
             
-where the input file named input file name is a binary file, and the output file is an ASCII text file.
+   where the input file named input file name is a binary file, and the output file is an ASCII text file.
