@@ -1,0 +1,56 @@
+Qin Yang CSCI 442 Project1: CPU Scheduling Simulator
+
+This project is to develop a CPU scheduling simulation executing a group of multi-threaded processes. The whole project include four kinds of files: 
+1. include file include every head file which need in the project;
+2. src file include all the source cpp code.
+3. UML.pdf file include all the classes and the software architecture.
+4. custom_algorithm_report.pdf introduce the detail about the custom algorithm designing.
+
+--------------------------File explaination--------------
+Burst{.h}: Defines the length and type{CPU/IO} of burst object;
+
+Thread{.h/.cpp}: Defines the thread object which has a state{NEW, READY, RUNNING, BLOCKED, EXIT}, an id, a queue of associated bursts, current state, previous state, attival time, service time, elapsed time and IO time;
+
+Process{.h/.cpp}: Defines the process object which contains the PID, a vector of threads and a type{SYSTEM, INTERACTIVE, NORMAL, BATCH};
+
+Event{.h/.cpp}: Defines the event object, which has a type{THREAD_ARRIVED, THREAD_DISPATCH_COMPLETED, PROCESS_DISPATCH_COMPLETED, CPU_BURST_COMPLETED, IO_BURST_COMPLETED, THREAD_COMPLETED, THREAD_PREEMPTED, DISPATCHER_INVOKED}, a time, a choice and a associated thread;
+
+Planner{.h}: Defines a interface for all other scheduling optins;
+
+Choice{.h}: Defines the choice object having a time slice and a string for explaination of the planner choice;
+
+FCFS{.h/.cpp}: Defines the first-come first-serve scheduling algorithm.
+
+RR{.h/.cpp}: Defines the Round Robin scheduling algorithm.
+
+PRIORITY{.h/.cpp}: Defines the process-priority(non-preemptive) scheduling algorithm.
+
+CUSTOM{.h/.cpp}: Defines the CUSTOM(preemptive) scheduling algorithm.
+
+Sys_Parameter{.h}: Defines all the system parameter such as hread counts, response time, turnaround time, elapsed time, service time, IO time, dispatch time, idle time, cpu utilization, and cpu efficiency.
+
+Print_Output{.h/.cpp}: Prints all the system parameters by using certain flags.
+
+Simualtion{.h/.cpp}: Using the next-event method defines the whole simulation and print state transitions.
+
+main{.cpp}: Starts the whole simualtion and prints the output based on the selected options.
+
+----------------How to run-------------------------
+First, using the terminal enter into the file. Then:
+
+# To build the program, type:
+#    make
+
+# To clean up and remove the files, type:
+#    make clean
+
+# To build and run the program, type:
+#    make run
+
+When you get the execution file "cpu_scheduling_simulator", you can type "./cpu_scheduling_simulator [flags] inputfile" to run it in the terminal. You also can use the help flag to find out the user manual. The content is shown as follow:
+					 -t, --eachThread    Output additional per-thread statistics for arrival time, service time, etc.
+					 -v, --verbose       Output information about every state-changing event and scheduling decision.
+					 -a, --algorithm     The scheduling algorithm to use. One of FCFS, RR, PRIORITY, or CUSTOM.
+					 -h, --help          Display a help message about these flags and exit.
+
+
